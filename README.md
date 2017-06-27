@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/grey-systems/chef-greysystems-mongodb.svg?branch=master)](https://travis-ci.org/grey-systems/chef-greysystems-mongodb)
 
-# pushmoney-mongodb Cookbook
+# greysystems-mongodb Cookbook
 
 Wrapper cookbook over [mongodb](https://supermarket.chef.io/cookbooks/mongodb) cookbook that installs and configures MongoDB, supporting:
 
@@ -33,10 +33,10 @@ Apart from the attributes defined in mongodb community cookbook, this cookbook a
 
 ### EBS specific attributes:
 
-* `node['pushmoney_mongo']['ec2']` - EC2 mode, defaults to true. If you are not using an EC2 instance, please setup this variable to false
-* `node['pushmoney_mongo']['ebs']['size']` - Size of the EBS volume to mount on the node, expressed in GB, defaults to 20. If `node['pushmoney_mongo']['ec2']` = false, it's not taken into account
-* `node['pushmoney_mongo']['ebs']['mount_point']` - Mount poinf of the volume, defaults to `/data`. If `node['pushmoney_mongo']['ec2']` = false, it's not taken into account
-* `node['pushmoney_mongo']['ebs']['device_id']` - Device id of the EBS volume, defaults to `/xvdb`. If `node['pushmoney_mongo']['ec2']` = false, it's not taken into account
+* `node['greysystems_mongo']['ec2']` - EC2 mode, defaults to true. If you are not using an EC2 instance, please setup this variable to false
+* `node['greysystems_mongo']['ebs']['size']` - Size of the EBS volume to mount on the node, expressed in GB, defaults to 20. If `node['greysystems_mongo']['ec2']` = false, it's not taken into account
+* `node['greysystems_mongo']['ebs']['mount_point']` - Mount poinf of the volume, defaults to `/data`. If `node['greysystems_mongo']['ec2']` = false, it's not taken into account
+* `node['greysystems_mongo']['ebs']['device_id']` - Device id of the EBS volume, defaults to `/xvdb`. If `node['greysystems_mongo']['ec2']` = false, it's not taken into account
 
 ## USAGE:
 
@@ -45,7 +45,7 @@ Apart from the attributes defined in mongodb community cookbook, this cookbook a
 Simply add
 
 ```ruby
-include_recipe "pushmoney-mongodb::default"
+include_recipe "greysystems-mongodb::default"
 ```
 
 to your recipe. This will run the mongodb instance as configured by your distribution.
@@ -56,12 +56,12 @@ to your recipe. This will run the mongodb instance as configured by your distrib
 * Launch and configure FIRST the replicaset's nodes. They must be up and running before the primary's node is configured.
 * For replicaset's member, add the following recipe to his run_list:
 ```ruby
-include_recipe "pushmoney-mongodb::default"
+include_recipe "greysystems-mongodb::default"
 ```
 * For primary's node, apart from adding the default recipe, include `configure-replicaset` recipe:
 ```ruby
-include_recipe "pushmoney-mongodb::default"
-include_recipe "pushmoney-mongodb::configure_relicaset"
+include_recipe "greysystems-mongodb::default"
+include_recipe "greysystems-mongodb::configure_relicaset"
 ```
 
 Testing

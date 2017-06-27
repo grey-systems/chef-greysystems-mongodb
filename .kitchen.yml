@@ -21,8 +21,8 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[pushmoney-mongodb::default]
+      - recipe[greysystems-mongodb::default]
       - recipe[test-helper::default]
     attributes:
-      pushmoney_mongo:
+      greysystems_mongo:
         ebs: false

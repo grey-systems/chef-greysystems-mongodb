@@ -1,7 +1,7 @@
-Contributing to chef-pushmoney-mongodb
+Contributing to chef-greysystems-mongodb
 =======================
 
-The easiest ways to contribute to `chef-pushmoney-mongodb` are:
+The easiest ways to contribute to `chef-greysystems-mongodb` are:
 
 
   * Creating a new [issue].
@@ -12,7 +12,7 @@ The easiest ways to contribute to `chef-pushmoney-mongodb` are:
 
 Git Flow
 --------
-We chose to use the [Git flow branching model][flow] for `chef-pushmoney-mongodb`, so you are
+We chose to use the [Git flow branching model][flow] for `chef-greysystems-mongodb`, so you are
 kindly required to follow the same model when making your contributions.  That
 basically means that:
 

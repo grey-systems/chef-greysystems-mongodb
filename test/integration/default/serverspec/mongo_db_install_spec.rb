@@ -7,10 +7,10 @@ require 'test_helper'
 set :backend, :exec
 
 describe package('mongodb-org'), if: os[:family] == 'debian' do
-  it { should be_installed.by('apt').with_version($node['pushmoney_mongo']['version']) }
+  it { should be_installed.by('apt').with_version($node['greysystems_mongo']['version']) }
 end
 describe package('mongodb-org'), if: os[:family] == 'redhat' do
-  it { should be_installed.with_version($node['pushmoney_mongo']['version']) }
+  it { should be_installed.with_version($node['greysystems_mongo']['version']) }
 end
 
 describe service('mongod') do

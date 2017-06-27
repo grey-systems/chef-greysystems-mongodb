@@ -1,8 +1,8 @@
 DEPENDENCIES
-  mongodb (~> 0.16.2)
-  pushmoney-mongodb
+  greysystems-mongodb
     path: .
     metadata: true
+  mongodb (~> 0.16.2)
   test-helper
     path: test/fixtures/cookbooks/test-helper
 
@@ -13,6 +13,10 @@ GRAPH
     mingw (>= 1.1)
     seven_zip (>= 0.0.0)
   compat_resource (12.19.0)
+  greysystems-mongodb (1.4.0)
+    aws (>= 0.0.0)
+    mongodb (>= 0.0.0)
+    selinux (>= 0.0.0)
   mingw (2.0.1)
     seven_zip (>= 0.0.0)
   mongodb (0.16.2)
@@ -22,10 +26,6 @@ GRAPH
     yum (>= 3.0)
   ohai (5.1.0)
   packagecloud (0.3.0)
-  pushmoney-mongodb (1.4.0)
-    aws (>= 0.0.0)
-    mongodb (>= 0.0.0)
-    selinux (>= 0.0.0)
   python (1.4.6)
     build-essential (>= 0.0.0)
     yum-epel (>= 0.0.0)

@@ -1,6 +1,6 @@
 ## Configure a replicaset in mongo, using current node as the primary one.
-## Replica set members are searched against chef server using node['pushmoney_mongo']['repSet']['members']
-## Cookbook Name:: pushmoney-mongodb
+## Replica set members are searched against chef server using node['greysystems_mongo']['repSet']['members']
+## Cookbook Name:: greysystems-mongodb
 ## Recipe:: rconfigure-replicaset
 ##
 ## Copyright (C) 201t GreySystems

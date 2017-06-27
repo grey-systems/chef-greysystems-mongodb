@@ -1,6 +1,6 @@
 .vagrant
 /cookbooks
-
+Gemfile.lock
 # Bundler
 bin/*
 .bundle/*

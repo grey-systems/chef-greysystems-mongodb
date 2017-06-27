@@ -1,6 +1,6 @@
 #
 # Installs/configure an ebs volume
-# Cookbook Name:: pushmoney-mongodb
+# Cookbook Name:: greysystems-mongodb
 # Recipe:: default
 #
 # Copyright (C) 2015 GreySystems
@@ -8,7 +8,7 @@
 # All rights reserved - Do Not Redistribute
 ##
 # Installs/configure an ebs volume
-# Cookbook Name:: pushmoney-mongodb
+# Cookbook Name:: greysystems-mongodb
 # Recipe:: default
 #
 # Copyright (C) 2015 GreySystems
@@ -21,13 +21,13 @@ if !node['cloud'].nil? && node['cloud']['provider'] == 'ec2' # the latter check 
   include_recipe 'selinux::disabled'
   aws = data_bag_item('aws', 'main')
 
-  device_id = "/dev/#{node['pushmoney_mongo']['ebs']['device_id']}"
+  device_id = "/dev/#{node['greysystems_mongo']['ebs']['device_id']}"
 
   # create and attach the volume to the device determined above
   aws_ebs_volume 'mongodb-volume' do
     aws_access_key aws['aws_access_key_id']
     aws_secret_access_key aws['aws_secret_access_key']
-    size node['pushmoney_mongo']['ebs']['size']
+    size node['greysystems_mongo']['ebs']['size']
     device device_id.gsub('xvd', 'sd') # aws uses sdx instead of xvdx
     action %i[create attach]
   end
@@ -44,7 +44,7 @@ if !node['cloud'].nil? && node['cloud']['provider'] == 'ec2' # the latter check 
     end
   end
 
-  directory node['pushmoney_mongo']['ebs']['mount_point'] do
+  directory node['greysystems_mongo']['ebs']['mount_point'] do
     owner 'root'
     group 'root'
     mode 0o0755
@@ -52,7 +52,7 @@ if !node['cloud'].nil? && node['cloud']['provider'] == 'ec2' # the latter check 
     action :create
   end
 
-  mount_point = node['pushmoney_mongo']['ebs']['mount_point']
+  mount_point = node['greysystems_mongo']['ebs']['mount_point']
 
   # create a filesystem
   execute 'mkfs' do
