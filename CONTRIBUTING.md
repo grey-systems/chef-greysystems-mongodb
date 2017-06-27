@@ -8,7 +8,7 @@ The easiest ways to contribute to `chef-pushmoney-mongodb` are:
   * Forking the repository, make your contribution and submit a pull request.
     See [Git Flow](#git-flow) for further information.
 
-[issue]: https://github.com/grey-systems/chef-pushmoney-mongodb/issues/new
+[issue]: https://github.com/grey-systems/chef-greysystems-mongodb/issues
 
 Git Flow
 --------
