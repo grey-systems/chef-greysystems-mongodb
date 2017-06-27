@@ -2,7 +2,7 @@
 
 # pushmoney-mongodb Cookbook
 
-Warpper cookbook over [mongodb](https://supermarket.chef.io/cookbooks/mongodb) cookbook that installs and configures MongoDB, supporting:
+Wrapper cookbook over [mongodb](https://supermarket.chef.io/cookbooks/mongodb) cookbook that installs and configures MongoDB, supporting:
 
 * Single MongoDB instance
 * EC2 installation including creation/attach/format/mount of an EBS volume
@@ -19,7 +19,7 @@ Warpper cookbook over [mongodb](https://supermarket.chef.io/cookbooks/mongodb) c
 
 ### Platform:
 
-* Chef client version 12.13
+* Chef client version >= 12 (not tested on 13)
 * Centos 7
 
 Any RHEL platform should be supported but it's not tested.
