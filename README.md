@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/patarra/chef-greysystems-mongodb.svg?branch=master)](https://travis-ci.org/patarra/chef-greysystems-mongodb)
+[![Build Status](https://travis-ci.org/grey-systems/chef-greysystems-mongodb.svg?branch=master)](https://travis-ci.org/grey-systems/chef-greysystems-mongodb)
 
 # pushmoney-mongodb Cookbook
 
