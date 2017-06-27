@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -e
+
+id=1
+members=()
+IFS=',' read -ra hosts <<< "<%=node['ipaddress'] %>:<%=node['mongodb']['config']['port'] %>,<%=@secondary_servers%>"
+for host in "${hosts[@]}"; do
+    members+=("{_id:${id},host:'${host}'}")
+    ((id++))
+done
+
+members_js=`echo $(IFS=,; echo "${members[*]}")`
+js="rs.initiate({_id:'<%=node['mongodb']['config']['replSet'] %>',members:[${members_js}]});"
+echo $js
+
+mongo --eval "${js}"

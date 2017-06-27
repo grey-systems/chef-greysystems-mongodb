@@ -1,0 +1,16 @@
+name             'pushmoney-mongodb'
+maintainer       'GreySystems'
+maintainer_email 'jmfelguera@greysystems.eu'
+license          'BSD-3-Clause'
+description      'Installs/Configures pushmoney-mongodb'
+long_description 'Installs/Configures pushmoney-mongodb'
+version          '1.4.0'
+chef_version '> 12'
+supports 'centos'
+
+depends 'mongodb'
+depends 'aws'
+depends 'selinux'
+
+issues_url 'https://bitbucket.org/greysystems/chef-pushmoney-mongodb'
+source_url 'https://bitbucket.org/greysystems/chef-pushmoney-mongodb'

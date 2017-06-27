@@ -1,0 +1,43 @@
+DEPENDENCIES
+  mongodb (~> 0.16.2)
+  pushmoney-mongodb
+    path: .
+    metadata: true
+  test-helper
+    path: test/fixtures/cookbooks/test-helper
+
+GRAPH
+  apt (6.1.2)
+  aws (7.1.2)
+  build-essential (8.0.3)
+    mingw (>= 1.1)
+    seven_zip (>= 0.0.0)
+  compat_resource (12.19.0)
+  mingw (2.0.1)
+    seven_zip (>= 0.0.0)
+  mongodb (0.16.2)
+    apt (>= 1.8.2)
+    python (>= 0.0.0)
+    runit (>= 1.5.0)
+    yum (>= 3.0)
+  ohai (5.1.0)
+  packagecloud (0.3.0)
+  pushmoney-mongodb (1.4.0)
+    aws (>= 0.0.0)
+    mongodb (>= 0.0.0)
+    selinux (>= 0.0.0)
+  python (1.4.6)
+    build-essential (>= 0.0.0)
+    yum-epel (>= 0.0.0)
+  runit (3.0.5)
+    packagecloud (>= 0.0.0)
+    yum-epel (>= 0.0.0)
+  selinux (2.0.3)
+  seven_zip (2.0.2)
+    windows (>= 1.2.2)
+  test-helper (0.0.1)
+  windows (3.1.1)
+    ohai (>= 4.0.0)
+  yum (5.0.1)
+  yum-epel (2.1.2)
+    compat_resource (>= 12.16.3)
