@@ -1,0 +1,8 @@
+Lint/AmbiguousRegexpLiteral:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 200
+
+Style/GlobalVars: 
+  Enabled: false

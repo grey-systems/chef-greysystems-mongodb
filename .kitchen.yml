@@ -1,0 +1,28 @@
+---
+driver:
+  name: docker
+  use_sudo: false
+
+provisioner:
+  name: chef_zero
+  # You may wish to disable always updating cookbooks in CI or other testing environments.
+  # For example:
+  #   always_update_cookbooks: <%= !ENV['CI'] %>
+  always_update_cookbooks: true
+  require_chef_omnibus: 12.13.37
+
+platforms:
+  - name: centos-7.1
+    driver_config:
+          image: centos:centos7
+          run_command: /usr/sbin/init
+          privileged: true
+
+suites:
+  - name: default
+    run_list:
+      - recipe[greysystems-mongodb::default]
+      - recipe[test-helper::default]
+    attributes:
+      greysystems_mongo:
+        ebs: false
