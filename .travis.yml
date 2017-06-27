@@ -10,5 +10,4 @@ install:
   - chef exec bundle install
 script:
   - chef exec bundle exec rake full
-after_success:
   - sh ./deploy-cookbook.sh
