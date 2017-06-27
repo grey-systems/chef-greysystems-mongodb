@@ -10,4 +10,5 @@ install:
   - chef exec bundle install
 script:
   - chef exec bundle exec rake full
-  - if [ $TRAVIS_BRANCH = 'master' ]; chef exec stove --username greysystems --key ./greysystems.pem --no-git --log-level debug
+after_success:
+  - sh ./deploy-cookbook.sh
