@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/grey-systems/chef-greysystems-mongodb.svg?branch=master)](https://travis-ci.org/grey-systems/chef-greysystems-mongodb)
+Master Branch: [![Build Status](https://travis-ci.org/grey-systems/chef-greysystems-mongodb.svg?branch=master)](https://travis-ci.org/grey-systems/chef-greysystems-mongodb)
+Develop Branch:  [![Build Status](https://travis-ci.org/grey-systems/chef-greysystems-mongodb.svg?branch=develop)](https://travis-ci.org/grey-systems/chef-greysystems-mongodb)
 
 # greysystems-mongodb Cookbook
 
