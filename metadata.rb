@@ -5,7 +5,7 @@ license          'BSD-3-Clause'
 description      'Installs/Configures a mongodb instance'
 long_description 'Installs/Configures a mongodb instance '
 version          '1.0.0'
-chef_version '> 12'
+
 supports 'centos'
 
 depends 'mongodb'

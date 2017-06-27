@@ -7,4 +7,5 @@ source 'https://rubygems.org' do
   gem 'rubocop'
   gem 'test-kitchen'
   gem 'versionomy'
+  gem 'stove'
 end

@@ -1,8 +1,15 @@
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+
+Bundler/OrderedGems:
+  Enabled: false
+
 Lint/AmbiguousRegexpLiteral:
   Enabled: false
 
 Metrics/LineLength:
   Max: 200
 
-Style/GlobalVars: 
+Style/GlobalVars:
   Enabled: false
