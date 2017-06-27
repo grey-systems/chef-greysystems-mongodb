@@ -1,21 +1,13 @@
 sudo: required
 services: docker
 rvm:
-- 2.3
+  - 2.3
 before_install:
-- openssl aes-256-cbc -K $encrypted_89cd50f5a89a_key -iv $encrypted_89cd50f5a89a_iv -in greysystems.pem.enc -out greysystems.pem -d
-- chef --version &> /dev/null || curl -L https://www.getchef.com/chef/install.sh |
-  sudo bash -s -- -P chefdk -v 1.4.3
-- eval "$(/opt/chefdk/bin/chef shell-init bash)"
+  - openssl aes-256-cbc -K $encrypted_89cd50f5a89a_key -iv $encrypted_89cd50f5a89a_iv -in greysystems.pem.enc -out greysystems.pem -d
+  - chef --version &> /dev/null || curl -L https://www.getchef.com/chef/install.sh |  sudo bash -s -- -P chefdk -v 1.5.0
+  - eval "$(/opt/chefdk/bin/chef shell-init bash)"
 install:
-- chef exec bundle install
+  - chef exec bundle install
 script:
-- chef exec bundle exec rake full
-deploy:
-  provider: chef-supermarket
-  user_id: greysystems
-  skip_cleanup: true
-  client_key: "greysystems.pem"
-  cookbook_category: Databases
-  on:
-    branch: master
+  - chef exec bundle exec rake full
+  - if [ $TRAVIS_BRANCH = 'master' ]; chef exec stove --username greysystems --key ./greysystems.pem --no-git --log-level debug
