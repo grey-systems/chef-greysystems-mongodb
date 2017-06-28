@@ -11,6 +11,7 @@ before_install:
 install:
 - chef exec bundle install
 script:
+- echo $TRAVIS_BRANCH
 - chef exec bundle exec rake full
 - bash ./deploy-cookbook.sh
 notifications:
