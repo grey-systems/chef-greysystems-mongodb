@@ -7,8 +7,9 @@ before_install:
   - chef --version &> /dev/null || curl -L https://www.getchef.com/chef/install.sh |  sudo bash -s -- -P chefdk -v 1.5.0
   - eval "$(/opt/chefdk/bin/chef shell-init bash)"
 install:
+  - echo $TRAVIS_BRANCH
   - chef exec bundle install
 script:
   - chef exec bundle exec rake full
-  - echo "Travis branch: $TRAVIS_BRANCH"
+  - echo $TRAVIS_BRANCH
   - bash ./deploy-cookbook.sh
