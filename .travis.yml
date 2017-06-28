@@ -1,14 +1,21 @@
 sudo: required
 services: docker
 rvm:
-  - 2.3
+- 2.3
 before_install:
-  - openssl aes-256-cbc -K $encrypted_89cd50f5a89a_key -iv $encrypted_89cd50f5a89a_iv -in greysystems.pem.enc -out greysystems.pem -d
-  - chef --version &> /dev/null || curl -L https://www.getchef.com/chef/install.sh |  sudo bash -s -- -P chefdk -v 1.5.0
-  - eval "$(/opt/chefdk/bin/chef shell-init bash)"
+- openssl aes-256-cbc -K $encrypted_89cd50f5a89a_key -iv $encrypted_89cd50f5a89a_iv
+  -in greysystems.pem.enc -out greysystems.pem -d
+- chef --version &> /dev/null || curl -L https://www.getchef.com/chef/install.sh |  sudo
+  bash -s -- -P chefdk -v 1.5.0
+- eval "$(/opt/chefdk/bin/chef shell-init bash)"
 install:
-  - chef exec bundle install
+- chef exec bundle install
 script:
-  - chef exec bundle exec rake full
-  - echo "Travis branch: $TRAVIS_BRANCH"
-  - bash ./deploy-cookbook.sh
+- echo $TRAVIS_BRANCH
+- chef exec bundle exec rake full
+- bash ./deploy-cookbook.sh
+notifications:
+  slack:
+    on_success: change
+    on_failure: always
+    secure: uKENriCSmXCXyKxU+UFUAZ+zmGAAVbEwQq9r8DpzdcsvlbkHRpIeBXCPgdlRHuiXhfCAnXB7kcWV/bTqdZa0H7REafQTbcSMNOABKZ1Q70lZ2TONkIWAIGsBTRd6tBcd1aNQdo7UBy0PPCeHcOK9E0cup9KAgQwH1C+spdw99r9hAvIsxznMVF8IYYyMwoTZEQgz2V7ucU0JZl8RZa3ScWoUVZEMFOjnDuX9UfAuKLC7717UuNATXs6A65Tm18AcR+nmfkOHQdAKtHCueTuOgV8hIb5V6pqpz78EJbcawSym7iK/h6UxuQNyG53oxy9HuWUqsfLCdOchSJc9/YDHnQjb+LYamct6zZ7fEpK/roMQxoxyAr7lA3TCiGo+gVvSe4aOq8U2F3bQ4aUS4XC7cxvkqd8h19aLAs214Yyx8r/fECaULyqI5h3lc+c8K8xA0ww3tXWGfPMlH5d8yuKVf0FM30xAWDAe45tZeQwowcbDRzZORexfC6P8jqaI+S+Bz1ewWDYZjyK8Mqnx7ulaP4uZMRXjdGGsgiiYSuVv0oNhqH7rMAzs7tUHinise1wRwPujD62bSHcg7NLXqSIqYbNHJmW0B+ybhy6Pkbun+UkQJQUh2j6MmRLQcxzekImr2ka5Aqky2hDnafT24Qo7gijHAvI5GOoiNZ6tQ5I0uio=
